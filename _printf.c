@@ -29,7 +29,7 @@ if (format[i] == '%')
 if (format[i + 1] == '%')
 {
 length += _putchar(format[i]);
-i+=2;
+i += 2;
 }
 else
 {
@@ -38,7 +38,7 @@ if (m)
 length += m(args);
 else
 length = _putchar(format[i]) + _putchar(format[i + 1]);
-i+=2;
+i += 2;
 }
 }
 else
