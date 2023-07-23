@@ -29,7 +29,7 @@ if (format[i] == '%')
 i++;
 if (format[i] == '%')
 {
-length += putchar(format[i]);
+length += _putchar(format[i]);
 i++;
 }
 else
@@ -38,13 +38,13 @@ m = get_specifier(format[i]);
 if (m)
 length += m(args);
 else
-length = putchar(format[i]) + putchar(format[i + 1]);
+length = _putchar(format[i]) + _putchar(format[i + 1]);
 i++;
 }
 }
 else
 {
-length += putchar(format[i]);
+length += _putchar(format[i]);
 i++;
 }
 }

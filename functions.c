@@ -14,7 +14,7 @@ int print_char(va_list args)
 int n;
 
 n = va_arg(args, int);
-return (putchar(n));
+return (_putchar(n));
 }
 
 /**
@@ -36,7 +36,7 @@ str = "(null)";
 }
 while (str[i] != '\0')
 {
-putchar(str[i]);
+_putchar(str[i]);
 i++;
 length++;
 }

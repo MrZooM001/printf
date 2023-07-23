@@ -2,6 +2,8 @@
 #define _MAIN_H_
 #include <stdarg.h>
 
+int _putchar(char c);
+
 /**
  * struct format_specifier - A struct to handle format specifiers.
  * @spc: work as validator of presented specifier.
