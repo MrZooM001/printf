@@ -38,7 +38,7 @@ m = get_specifier(format[i]);
 if (m)
 length += m(args);
 else
-length = _putchar(format[i]) + _putchar(format[i + 1]);
+length = _putchar(format[i]) + _putchar(format[i]);
 i++;
 }
 }
