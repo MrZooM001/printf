@@ -26,20 +26,19 @@ while (format != NULL && format[i] != '\0')
 {
 if (format[i] == '%')
 {
-i++;
-if (format[i] == '%')
+if (format[i + 1] == '%')
 {
 length += _putchar(format[i]);
-i++;
+i+=2;
 }
 else
 {
-m = get_specifier(format[i]);
+m = get_specifier(format[i + 1]);
 if (m)
 length += m(args);
 else
-length = _putchar(format[i]) + _putchar(format[i]);
-i++;
+length = _putchar(format[i]) + _putchar(format[i + 1]);
+i+=2;
 }
 }
 else
