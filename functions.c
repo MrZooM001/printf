@@ -100,3 +100,41 @@ div /= 10;
 
 return (count);
 }
+
+/**
+ * print_binary - Convert an integer to a binary & Print it.
+ * @args: A list of parameters passed as variadic function parameters.
+ *
+ * Return: An integer.
+ */
+
+int print_binary(va_list args)
+{
+unsigned int n, mask;
+int count, zeros;
+
+count = 0, zeros = 1;
+n = va_arg(args, unsigned int);
+mask = 1 << (sizeof(unsigned int) * 8 - 1);
+for (; mask != 0; mask >>= 1)
+{
+if ((n & mask) != 0)
+{
+zeros = 0;
+count += _putchar('1');
+}
+else
+{
+if (zeros == 0)
+{
+count += _putchar('0');
+}   
+}
+}
+if (zeros != 0)
+{
+count += _putchar('0');
+}
+
+return (count);
+}
