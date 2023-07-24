@@ -62,28 +62,41 @@ return (*str);
 }
 
 /**
- * get_specifier - A pointer function.
- * @c: A character as parameters.
+ * print_decimal - Print an integer in decimal that passed as a parameter.
+ * @args: A list of parameters passed as variadic function parameters.
  *
  * Return: An integer.
  */
-int (*get_specifier(char c))(va_list)
-{
-int i;
-specifier arr[] = {
-{"c", print_char},
-{"s", print_string},
-{"%", print_percent},
-{NULL, NULL}};
 
-i = 0;
-while (arr[i].spc)
+int print_decimal(va_list args)
 {
-if (c == arr[i].spc[0])
+int n;
+unsigned int absolute, count, div;
+
+count = 0;
+n = va_arg(args, int);
+if (n < 0)
 {
-return (arr[i].f);
+absolute = (-n);
+count += _putchar('-');
 }
-i++;
+else
+{
+absolute = n;
 }
-return (NULL);
+
+div = 1;
+while (absolute / div > 9)
+{
+div *= 10;
+}
+
+while (div > 0)
+{
+count += _putchar((absolute / div) +'0');
+absolute %= div;
+div /= 10;
+}
+
+return (count);
 }
