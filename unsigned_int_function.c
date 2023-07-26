@@ -11,20 +11,32 @@
  */
 int print_unsigned_int(va_list args)
 {
-unsigned int n, div;
-int count;
+unsigned int n, tmp, pwr;
+int count, digit;
 
-div = 1;
 n = va_arg(args, unsigned int);
-while ((n / div) > 9)
+count = 0, digit = 0;
+if (n == 0)
 {
-div *= 10;
+count += _putchar('0');
+return (1);
 }
-while (div > 0)
+tmp = n;
+while (tmp != 0)
 {
-count += _putchar((n / div) +'0');
-n %= div;
-div /= 10;
+tmp /= 10;
+digit++;
+}
+pwr = 1;
+while (--digit)
+{
+pwr *= 10;
+}
+while (pwr > 0)
+{
+count += _putchar((n / pwr) +'0');
+n %= pwr;
+pwr /= 10;
 }
 
 return (count);
